@@ -24,10 +24,40 @@ function sumaDeRango(numInicio, numFinal) {
   - Considerar casos límite y manejar posibles errores o situaciones inesperadas de manera apropiada.
 */
 
+/*
+Necesito un objeto para almacenar la cantidad de veces que se repite mi cadena
+posterior a esto teniendo ya el numero en el que se repiten necesito
+ir comparando uno a uno cual es mayor y en una variable irla guardando en dado caso que exista uno mayor
+reemplazarlo y asi hasta que termine mi cadena y retornarla
+*/ 
+
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
+    //Aquí voy a ir almacenando la frecuencia con la que se repiten mis caracteres
+    const frecuencia = {};
   
-}
+    // Aqui voy a contar la frecuencia de cada carácter
+    for (const caracter of cadena) {
+        frecuencia[caracter] = (frecuencia[caracter] || 0) + 1;
+    }
+  
+    // Aqui voy almacenar el caracter con mayor frecuencia
+    let caracterFrecuente = '';
+    // Aqui voy almacenar el valor que mas se repite de mi caracter
+    let mayorFrecuencia = 0;
+  
+    //En frecuencia ya tengo mi cadena con el valor que se repite solo queda ir comparando uno a uno
+    for (const caracter in frecuencia) {
+     //voy a comparar entre cada frecuencia si es mayor a mi variable mayorFrecuencia
+      if (frecuencia[caracter] > mayorFrecuencia) {
+      //Si es mayor que me guarde el caracter y el valor que se repite
+        caracterFrecuente = caracter;
+        mayorFrecuencia = frecuencia[caracter];
+      }
+    }
+  //al finalizar mi cadena que me devuelva el que mas se repite
+    return caracterFrecuente;
+  }
 
 module.exports = { 
   sumaDeRango,

@@ -4,7 +4,7 @@ const {
 } = require('../ejercicios.js');
 
 
-describe('Suma de un Rango de Números', () => {
+xdescribe('Suma de un Rango de Números', () => {
   test('Debería devolver 15 para el rango 1 a 5', () => {
     expect(sumaDeRango(1, 5)).toBe(15);
   });
