@@ -49,7 +49,7 @@ function caracteresMasFrecuentes(cadena) {
       }
     }
   }
-  return letters[0];
+  return letters;
 }
 
 module.exports = { 
