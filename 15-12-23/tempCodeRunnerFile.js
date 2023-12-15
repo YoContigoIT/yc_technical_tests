@@ -1,0 +1,1 @@
+cadenaMin.length
