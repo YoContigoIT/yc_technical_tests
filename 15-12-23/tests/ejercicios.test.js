@@ -19,15 +19,15 @@ describe('Suma de un Rango de Números', () => {
 })
 
 describe('Encontrar el Carácter Más Frecuente', () => {
-  test('Debería devolver "g" para la cadena "programming"', () => {
-    expect(caracteresMasFrecuentes("programming")).toEqual("r");
+  test('Debería devolver ["r", "g", "m"] para la cadena "programming"', () => {
+    expect(caracteresMasFrecuentes("programming")).toEqual(["r", "g", "m"]);
   });
   
-  test('Debería devolver "l" para la cadena "hello"', () => {
-    expect(caracteresMasFrecuentes("hello")).toEqual("l");
+  test('Debería devolver ["l"] para la cadena "hello"', () => {
+    expect(caracteresMasFrecuentes("hello")).toEqual(["l"]);
   });
   
-  test('Debería devolver "a" para la cadena "javascript"', () => {
-    expect(caracteresMasFrecuentes("javascript")).toEqual("a");
+  test('Debería devolver ["a"] para la cadena "javascript"', () => {
+    expect(caracteresMasFrecuentes("javascript")).toEqual(["a"]);
   });
 })

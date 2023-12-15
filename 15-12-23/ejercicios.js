@@ -5,7 +5,11 @@ Calcule la suma de todos los números enteros en un rango dado, incluyendo ambos
 
 function sumaDeRango(numInicio, numFinal) {
   // Tu código aquí
-
+  let suma = 0;
+  for(let i=numInicio; i <= numFinal; i++){
+    suma += i;
+  }
+  return suma;
 }
 
 /*
@@ -22,11 +26,40 @@ function sumaDeRango(numInicio, numFinal) {
   - La función debe retornar un string que contenga únicamente el carácter identificado.
   - Se espera que el código sea claro, legible y eficiente en cuanto a rendimiento.
   - Considerar casos límite y manejar posibles errores o situaciones inesperadas de manera apropiada.
+
+  * Crear un diccionario que sirva para almacenar el numero de apariciones  de cada caracter
+  * Inicializar array que contenga los caracter con mas ocurrencias
+  * 
+  * Ciclo sobre el array
+  *   en cada caracter contabilizar su aparicion en el diccionario
+  *
+  * Ciclo para recorrer el diccionario 
+  *   Agregar todos los elementos que tengan el mismo numero de ocurrencias que el maximo contabilizado (en el diccionario)
 */
 
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
-  
+  let contadores = {};
+  let maximo = 0;
+  let arrayFinal = [];
+  for(let i=0;i < cadena.length;i++) {
+    const c = cadena[i].toLowerCase();
+    if(contadores[c]){
+      contadores[c]++;
+    }
+    else{
+      contadores[c] = 1;
+    }
+    if(contadores[c] > maximo){
+      maximo = contadores[c];
+    }
+  }
+  for (const key in contadores) {
+    if(contadores[key] === maximo){
+      arrayFinal.push(key);
+    }
+  }
+  return arrayFinal;
 }
 
 module.exports = { 
