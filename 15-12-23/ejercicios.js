@@ -2,10 +2,12 @@
 3.- Suma de un Rango de Números:
 Calcule la suma de todos los números enteros en un rango dado, incluyendo ambos extremos. La función debe tomar dos números enteros como parámetros y devolver la suma de todos los números enteros (positivos o negativos) entre ellos, incluso si los parámetros están en orden descendente.
 */
-
 function sumaDeRango(numInicio, numFinal) {
-  // Tu código aquí
-
+  let suma = 0;
+  for (let i = numInicio; i <= numFinal; i++) {
+    suma += i;
+  }
+  return suma;
 }
 
 /*
@@ -23,10 +25,24 @@ function sumaDeRango(numInicio, numFinal) {
   - Se espera que el código sea claro, legible y eficiente en cuanto a rendimiento.
   - Considerar casos límite y manejar posibles errores o situaciones inesperadas de manera apropiada.
 */
-
 function caracteresMasFrecuentes(cadena) {
-  //Tu código aquí
-  
+  let cont, aux = 0;
+  let char = ''
+  for (let i = 0; i < cadena.length; i++) {
+    cont = 0;
+    for (let j = 0; j < cadena.length-1; j++) {
+      if (cadena[i] === cadena[j]) {
+        cont++;
+        if (cont > aux) {
+          aux = cont;
+          letra = cadena[i];
+        }
+      }
+    }
+    
+    // listaContadores.push({char: cadena[i], cant: cont})
+  }
+  return letra;
 }
 
 module.exports = { 
