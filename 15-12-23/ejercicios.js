@@ -5,7 +5,12 @@ Calcule la suma de todos los números enteros en un rango dado, incluyendo ambos
 
 function sumaDeRango(numInicio, numFinal) {
   // Tu código aquí
+  if( isNaN(numInicio) && isNaN(numFinal) ) throw new Error('Parameters must be numbers');
 
+  let sum = 0;
+  for (let i = numInicio; i <= numFinal; sum += i++);
+
+  return sum;
 }
 
 /*
@@ -26,7 +31,22 @@ function sumaDeRango(numInicio, numFinal) {
 
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
-  
+  if( typeof cadena !== 'string' ) throw new Error('Parameter must be a string');
+  if( cadena.length === 0 ) throw new Error("Parameter can't be empty");
+
+  const charsFrequency = {};
+  let greaterFrequency = 0;
+
+  for (const character of cadena) {
+    charsFrequency[character] = (charsFrequency[character] ?? 0) + 1;
+
+    if( charsFrequency[character] > greaterFrequency ) greaterFrequency = charsFrequency[character];
+  }
+
+  const charListWithGreaterFrequency = [];
+  for (const char in charsFrequency) {
+    if( charsFrequency[char] === greaterFrequency ) return char;
+  }
 }
 
 module.exports = { 
