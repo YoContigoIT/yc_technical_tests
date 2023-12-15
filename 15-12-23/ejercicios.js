@@ -24,12 +24,61 @@ function sumaDeRango(numInicio, numFinal) {
   - Considerar casos límite y manejar posibles errores o situaciones inesperadas de manera apropiada.
 */
 
+
 function caracteresMasFrecuentes(cadena) {
-  //Tu código aquí
-  
+  const arrayCadena = cadena.toLowerCase().split('');
+  const arrayWithNumbers = [];
+  arrayCadena.forEach((elem) => {
+    arrayWithNumbers.push(compareChart(elem, arrayCadena));
+  });
+
+  sortArray(arrayWithNumbers);
 }
 
-module.exports = { 
+function compareChart(chart, array) {
+  let sum = 0;
+  array.map((e) => {
+    if (e == chart)
+      sum += 1;
+  })
+  return { chart: chart, sum: sum }
+}
+
+function sortArray(array) {
+  array.sort(function (a, b) {
+    if (a.sum < b.sum) {
+      return 1;
+    }
+    if (a.sum > b.sum) {
+      return -1;
+    }
+    return 0;
+  });
+  extractCoincidences(array);
+}
+
+function extractCoincidences(array) {
+  arrayAux = [];
+  arrayComplete = []
+  array.forEach((e) => {
+    if (array[0].sum == e.sum) {
+      arrayAux.push(e.chart);
+    }
+  });
+  arrayAux.forEach((item) => {
+    if (!arrayComplete.includes(item)) {
+      arrayComplete.push(item);
+    }
+  });
+
+  //---------RESPUESTA FINAL----------
+  console.log(arrayComplete.join(''));
+  return arrayComplete.join('');
+}
+
+module.exports = {
   sumaDeRango,
   caracteresMasFrecuentes
 }
+
+caracteresMasFrecuentes('pprogramming');
