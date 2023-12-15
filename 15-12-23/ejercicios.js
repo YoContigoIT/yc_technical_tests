@@ -49,7 +49,12 @@ function caracteresMasFrecuentes(cadena) {
       }
     }
   }
-  return letters;
+
+  if (letters.length == 1){
+    return letters[0];
+  } else {
+    return letters;
+  }
 }
 
 module.exports = { 
