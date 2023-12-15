@@ -24,12 +24,39 @@ function sumaDeRango(numInicio, numFinal) {
   - Considerar casos límite y manejar posibles errores o situaciones inesperadas de manera apropiada.
 */
 
+
+
+/*
+
+1- guardarla en un array dividido con split 
+2- iterar el array 
+3- comparar si son iguales y los que si guardarlos en una variable
+4- retornar la que tenga length mayor 
+
+*/
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
-  
+  let letraADevolver = ''
+  let nuevaCuenta, contadorDeLetraQueMasSeRepit= 0
+  for (let i = 0; i < cadena.length; i++) {
+    cont = 0
+    for (let j = 1; j < cadena.length; j++) {
+      if(cadena[i] == cadena[j]){
+        nuevaCuenta++
+        if (nuevaCuenta > contadorDeLetraQueMasSeRepit) {
+          letraADevolver = cadena[i]
+          contadorDeLetraQueMasSeRepit = nuevaCuenta
+        }
+      }
+    }
+  }
+  return letra
+
 }
 
-module.exports = { 
+console.log(caracteresMasFrecuentes('cadena'))
+
+module.exports = {
   sumaDeRango,
   caracteresMasFrecuentes
 }
