@@ -26,6 +26,32 @@ function sumaDeRango(numInicio, numFinal) {
 
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
+  let chainClear = cadena.toLowerCase();
+  let count = [];
+  let letter = '';
+  for (let i = 0; i < chainClear.length; i++){
+    let aux = chainClear[i];
+    let counter = 0;
+      for (let a = 0; a<chainClear.length; a++) {
+        if(aux == chainClear[a]){
+          counter++;
+        }
+      }
+    count.push({count: counter, letter: aux});
+    //console.log(letter, count[i])
+  }
+  let countMax = count[0].count;
+  for (let i = 1; i<count.length; i++){
+    if(countMax < count[i].count) {
+      letter = count[i].letter
+      countMax = count[i].count
+    };
+  }
+
+  return letter;
+  //console.log(count)
+  //let letter = ''
+
   
 }
 
