@@ -3,9 +3,17 @@
 Calcule la suma de todos los números enteros en un rango dado, incluyendo ambos extremos. La función debe tomar dos números enteros como parámetros y devolver la suma de todos los números enteros (positivos o negativos) entre ellos, incluso si los parámetros están en orden descendente.
 */
 
+sumaDeRango(1, 5);
+
 function sumaDeRango(numInicio, numFinal) {
   // Tu código aquí
+  let currentAdder = 0;
 
+  for(let i = numInicio; i <= numFinal; i++){
+    currentAdder += i;
+  }
+
+  return currentAdder;
 }
 
 /*
@@ -14,6 +22,9 @@ function sumaDeRango(numInicio, numFinal) {
 
   * EXTRA OPCIONAL: En caso de que varios caracteres tengan la misma frecuencia máxima, la función deberá retornar un array con todos estos caracteres.
   
+  1 . obtener cadena
+  2. 
+
   Consideraciones:
   - La función debe recibir una cadena de texto como parámetro.
   - Debe considerar todos los caracteres, sin distinción entre mayúsculas y minúsculas.
@@ -24,9 +35,24 @@ function sumaDeRango(numInicio, numFinal) {
   - Considerar casos límite y manejar posibles errores o situaciones inesperadas de manera apropiada.
 */
 
+//caracteresMasFrecuentes('programming')
+
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
-  
+  let charCounter = {};
+  let frequentChar = cadena[0];
+
+  for(let char of cadena.toLowerCase()){
+
+    if(!charCounter[char]) charCounter[char] = 0;
+    
+    charCounter[char]++;
+    
+    if(charCounter[char] > charCounter[frequentChar]) frequentChar = char;
+
+  }
+
+  return frequentChar;
 }
 
 module.exports = { 
