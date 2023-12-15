@@ -4,8 +4,12 @@ Calcule la suma de todos los números enteros en un rango dado, incluyendo ambos
 */
 
 function sumaDeRango(numInicio, numFinal) {
-  // Tu código aquí
+  let aux = 0;
 
+  for (let index = numInicio; index <= numFinal; index++) {
+      aux += index;
+  }
+  return aux;
 }
 
 /*
@@ -26,7 +30,25 @@ function sumaDeRango(numInicio, numFinal) {
 
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
+  let aux = cadena.split("");
+  let aux2 = 0;
+  let numero_veces = 0;
+  let letra = "";
   
+  for (let index = 0; index < aux.length; index++) {
+    aux2 = 0;
+    for (let index2 = index + 1; index2 < aux.length; index2++) {
+      if (aux[index] == aux[index2]) {
+        aux2++;
+
+        if (aux2 > numero_veces) {
+          numero_veces = aux2;
+          letra = aux[index];
+        }
+      }
+    }
+  }
+  return letra;
 }
 
 module.exports = { 
