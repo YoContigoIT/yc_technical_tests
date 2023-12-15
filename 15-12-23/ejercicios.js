@@ -4,8 +4,11 @@ Calcule la suma de todos los números enteros en un rango dado, incluyendo ambos
 */
 
 function sumaDeRango(numInicio, numFinal) {
-  // Tu código aquí
-
+  var suma = 0;
+  for (var i = numInicio; i <= numFinal; i++) {
+    suma += i;
+  }
+  return suma;
 }
 
 /*
