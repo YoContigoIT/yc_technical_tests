@@ -4,8 +4,11 @@ Calcule la suma de todos los números enteros en un rango dado, incluyendo ambos
 */
 
 function sumaDeRango(numInicio, numFinal) {
-  // Tu código aquí
-
+  let suma = 0;
+  for (let i = numInicio; i <= numFinal; i++) {
+    suma += i;
+  }
+  return suma;
 }
 
 /*
@@ -25,11 +28,46 @@ function sumaDeRango(numInicio, numFinal) {
 */
 
 function caracteresMasFrecuentes(cadena) {
-  //Tu código aquí
-  
-}
 
-module.exports = { 
+  const objeto = {};
+  let contador;
+  let cadedena2 = cadena.toLowerCase().split('');
+
+  for (let i = 0; i < cadedena2.length; i++) {
+    contador = 0;
+
+    for (let j = 0; j < cadedena2.length; j++) {
+      if (cadedena2[i] == cadedena2[j]) {
+        let char = cadedena2[i]
+        contador++;
+        objeto[char] = contador
+      }
+    }
+
+  }
+  const newArray = Object.entries(objeto);
+  newArray.sort((a, b) => b[1] - a[1])
+
+  return newArray[0][0];
+
+
+
+  // Oto's code
+  /* let cadena2 = cadena.toLowerCase();
+  cadena2 = cadena2.split("");
+  const objeto = {};
+  cadena2.forEach((letra) => {
+    objeto[letra] ? objeto[letra] += 1 : objeto[letra] = 1;
+  })
+
+  const newArray = Object.entries(objeto);
+  newArray.sort((a, b) => b[1] - a[1])
+
+  return newArray[0][0]; */
+}
+caracteresMasFrecuentes('programming');
+
+module.exports = {
   sumaDeRango,
   caracteresMasFrecuentes
 }
