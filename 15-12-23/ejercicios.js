@@ -33,29 +33,29 @@ function sumaDeRango(numInicio, numFinal) {
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
 
-  let cadenaMin = cadena.toLowerCase();
+  let cadenaMin = cadena.toLowerCase().split("");
   let cadenaAux = [];
   let letrarepetida = "";
   let letra = 0;
-  let cont = 1;
+  let cont = 0;
   for (let i = 0; i < cadenaMin.length; i++) {
-    let cont = 0;
-    for (let j = 1; j < cadenaMin.length; j++) {
+    cont = 0;
+    for (let j = i; j < cadenaMin.length; j++) {
       if (cadenaMin[i] == cadenaMin[j]) {
         cont++;
-        cadenaAux += cont;
-        console.log(cadenaAux);
-        if (letra < cadenaAux) {
-          letra = cadenaAux;
+
+        if (cont > letra) {
+          letra = cont;
           letrarepetida = cadenaMin[j];
         }
       }
     }
   }
   console.log(letrarepetida);
+  return letrarepetida;
 }
 
-caracteresMasFrecuentes("hoalaaa");
+caracteresMasFrecuentes("hello");
 
 module.exports = {
   sumaDeRango,
