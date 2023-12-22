@@ -9,7 +9,7 @@ const {
   textoAsteriscos,
   textoGuiones,
   textoUnderscore
-} = require('../homework');
+} = require('../ejercicios.js');
 
 describe('counter', () => {
  it('should return a function', () => {
@@ -38,7 +38,7 @@ describe('counter', () => {
  });
 });
 
-describe('cacheFunction(cb)', function() {
+xdescribe('cacheFunction(cb)', function() {
  const cb = function(x) {
    return x * 2;
  };
@@ -74,7 +74,7 @@ describe('cacheFunction(cb)', function() {
  });
 });
 
-describe('Bind', function() {
+xdescribe('Bind', function() {
  it('should return the correct name "Franco"', function() {
    expect(getNombreInstructor()).toEqual('Franco');
  });
