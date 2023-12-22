@@ -1,20 +1,37 @@
-const sumarArray = (arr) => arr
+const sumarArray = (arr) => arr.reduce((acc, value) => acc + value, 0);
 
-const multiplicarArray = (arr) => arr
+const multiplicarArray = (arr) => arr.reduce((acc, value) => acc * value, 1);
 
-const usarForEach = (arr) => {}
+const usarForEach = (arr) => {
+  const resultado = [];
 
-const usarMap = (arr) => arr
+  arr.forEach((element) => {
+    resultado.push(element * 2);
+  });
 
-const usarFilter = (arr) => arr
+  return resultado;
+};
 
-const usarFind = (arr, valor) => arr
+const usarMap = (arr) =>
+  arr.map((num) => {
+    return num * 3;
+  });
+
+const usarFilter = (arr) =>
+  arr.filter((arr) => {
+    return arr % 2 == 0;
+  });
+
+const usarFind = (arr, valor) =>
+  arr.find((arr) => {
+    return arr == valor;
+  });
 
 module.exports = {
-    sumarArray,
-    multiplicarArray,
-    usarForEach,
-    usarMap,
-    usarFilter,
-    usarFind
-}
+  sumarArray,
+  multiplicarArray,
+  usarForEach,
+  usarMap,
+  usarFilter,
+  usarFind,
+};
