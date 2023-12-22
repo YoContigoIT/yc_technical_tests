@@ -1,33 +1,93 @@
-const { usarForEach, usarMap, usarFilter, usarFind, sumarArray, multiplicarArray } = require('../ejercicios');
+// /* eslint-disable no-undef */
+'use strict'
 
-describe('Pruebas de métodos de array', () => {
-    test('sumarArray suma correctamente los elementos del array', () => {
-        const resultado = sumarArray([1, 2, 3, 4]);
-        expect(resultado).toBe(10);
-    });
+const {
+  counter,
+  cacheFunction,
+  getNombreInstructor,
+  getNombreAlumno,
+  textoAsteriscos,
+  textoGuiones,
+  textoUnderscore
+} = require('../homework');
 
-    test('multiplicarArray multiplica correctamente los elementos del array', () => {
-        const resultado = multiplicarArray([1, 2, 3, 4]);
-        expect(resultado).toBe(24);
-    });
+describe('counter', () => {
+ it('should return a function', () => {
+   expect(typeof counter()).toBe('function');
+ });
+ it('should return 1 when the returned function is invoked', () => {
+   expect(counter()()).toBe(1);
+ });
+ it('should increment and return the number each time the function is invoked', () => {
+   const counterFunction = counter();
+   expect(counterFunction()).toBe(1);
+   expect(counterFunction()).toBe(2);
+   expect(counterFunction()).toBe(3);
+   expect(counterFunction()).toBe(4);
+   expect(counterFunction()).toBe(5);
+ });
+ it('should have two diferent acumulators if two counters are created', () => {
+   const counterOne = counter();
+   const counterTwo = counter();
+   expect(counterOne()).toBe(1);
+   expect(counterOne()).toBe(2);
+   expect(counterOne()).toBe(3);
+   expect(counterOne()).toBe(4);
+   expect(counterTwo()).toBe(1);
+   expect(counterTwo()).toBe(2);
+ });
+});
 
-    test('usarForEach modifica correctamente los elementos del array usando forEach', () => {
-        const resultado = usarForEach([1, 2, 3, 4]);
-        expect(resultado).toEqual([2, 4, 6, 8]);
-    });
+describe('cacheFunction(cb)', function() {
+ const cb = function(x) {
+   return x * 2;
+ };
+ it('should return the callback function', function() {
+   expect(typeof cacheFunction(cb)).toEqual('function');
+ });
+ it('should return the callback functions result when the cached function is invoked', function() {
+   const cachedFunction = cacheFunction(cb);
+   expect(cachedFunction(5)).toBe(10);
+ });
+ it('should cache function results', function() {
+  const cachedFunction = cacheFunction(cb);
+  var resultOne = cachedFunction(2);
+  expect(resultOne).toBe(4);
+  var resultTwo = cachedFunction(3);
+  expect(resultTwo).toBe(6);
+  var resultTwo = cachedFunction(2);
+  expect(resultTwo).toBe(4);
+});
+ it('should avoid calling cb function when not necessary', function() {
+   const cb = jest.fn();
+   const cachedFunction = cacheFunction(cb);
+   cachedFunction(true);
+   cachedFunction(true);
+   cachedFunction(true);
+   cachedFunction(true);
+   cachedFunction(true);
+   cachedFunction(10);
+   cachedFunction(10);
+   cachedFunction(10);
+   cachedFunction(10);
+   expect(cb).toHaveBeenCalledTimes(2);
+ });
+});
 
-    test('usarMap transforma correctamente los elementos del array usando map', () => {
-        const resultado = usarMap([1, 2, 3, 4]);
-        expect(resultado).toEqual([3, 6, 9, 12]);
-    });
-
-    test('usarFilter filtra correctamente los elementos del array usando filter', () => {
-        const resultado = usarFilter([1, 2, 3, 4, 5, 6]);
-        expect(resultado).toEqual([2, 4, 6]);
-    });
-
-    test('usarFind encuentra correctamente un elemento en el array usando find', () => {
-        const resultado = usarFind([1, 2, 3, 4], 3);
-        expect(resultado).toBe(3);
-    });
+describe('Bind', function() {
+ it('should return the correct name "Franco"', function() {
+   expect(getNombreInstructor()).toEqual('Franco');
+ });
+ it('should return the correct name "Juan"', function() {
+   expect(getNombreAlumno()).toEqual('Juan');
+ });
+ it('should return the correct string "*Hola*"', function() {
+   expect(textoAsteriscos('Hola')).toEqual('*Hola*');
+ });
+ it('should return the correct string "-Hola-"', function() {
+   expect(textoGuiones('Hola')).toEqual('-Hola-');
+ });
+ it('should return the correct string "_Hola_"', function() {
+   expect(textoUnderscore('Hola')).toEqual('_Hola_');
+ });
 });
