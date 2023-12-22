@@ -74,7 +74,7 @@ describe('cacheFunction(cb)', function() {
  });
 });
 
-xdescribe('Bind', function() {
+describe('Bind', function() {
  it('should return the correct name "Franco"', function() {
    expect(getNombreInstructor()).toEqual('Franco');
  });
