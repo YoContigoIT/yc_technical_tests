@@ -5,6 +5,13 @@ Calcule la suma de todos los números enteros en un rango dado, incluyendo ambos
 
 function sumaDeRango(numInicio, numFinal) {
   // Tu código aquí
+  // let result
+  // if(numInicio > numFinal){
+  //   for(let i = numFinal){
+
+  //   }
+  // }
+
 
 }
 
@@ -26,8 +33,33 @@ function sumaDeRango(numInicio, numFinal) {
 
 function caracteresMasFrecuentes(cadena) {
   //Tu código aquí
-  
+  let charReady = {}
+  const lowercaseString = cadena.toLowerCase();
+
+    for (const key in lowercaseString) {
+      if(!charReady.hasOwnProperty(lowercaseString[key])){
+        charReady[lowercaseString[key]] = 1  
+      }else {
+        charReady[lowercaseString[key]] = charReady[lowercaseString[key]] + 1
+      }  
+    }
+
+    let valores = Object.values(charReady);
+    let valorMasAlto = Math.max(...valores);
+
+    const letterRepeat = Object.keys(charReady).filter(element => 
+      charReady[element] == valorMasAlto
+    )
+
+    // console.log(letterRepeat.length);
+
+    // if (letterRepeat.length == 1)
+    //   return letterRepeat[0]
+
+    return letterRepeat
 }
+
+// caracteresMasFrecuentes('hola');
 
 module.exports = { 
   sumaDeRango,
