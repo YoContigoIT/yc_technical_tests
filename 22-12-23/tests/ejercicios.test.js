@@ -9,7 +9,7 @@ const {
   textoAsteriscos,
   textoGuiones,
   textoUnderscore
-} = require('../homework');
+} = require('../ejercicios.js');
 
 describe('counter', () => {
  it('should return a function', () => {

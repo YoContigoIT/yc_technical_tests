@@ -1,8 +1,22 @@
-const sumarArray = (arr) => arr
+const sumarArray = (arr) => arr.reduce((acc, value) => {
+    return acc = acc + value;
+}, 0)
 
-const multiplicarArray = (arr) => arr
+//console.log(sumarArray([1, 2, 3, 4]));
 
-const usarForEach = (arr) => {}
+const multiplicarArray = (arr) => arr.reduce((acc, value) => {
+    return acc = acc * value;
+})
+
+//console.log(multiplicarArray([1, 2, 3, 4]));
+
+const usarForEach = (arr) => {
+    return arr.forEach((element) => {
+        element+1;
+    });
+}
+
+console.log(usarForEach([1, 2, 3, 4]));
 
 const usarMap = (arr) => arr
 
