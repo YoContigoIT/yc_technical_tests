@@ -38,7 +38,17 @@ otra vez cálculos que ya se hicieron anteriormente.
   squareCache(5)    // invocará a square(5), almacenará el resultado y lo retornará
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) */
 
-function cacheFunction(cb) {}
+function cacheFunction(cb) {
+  if( typeof cb !== 'function' ) throw new Error('cb parameter must be a function');
+
+  let results = new Object();
+
+  return function(arg) {
+    if( results.hasOwnProperty(arg) ) return results[arg];
+
+    return results[arg] = cb(arg);
+  }
+}
 
 //----------------------------------------
 
