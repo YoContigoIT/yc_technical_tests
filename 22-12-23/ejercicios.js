@@ -13,7 +13,10 @@ nuevoContador()     // 2
 const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
-function counter() {}
+function counter() {
+  let calls = 0;
+  return () => ++calls;
+}
 
 /* Ejercicio 2
 Tu tarea aquí es lograr, mediante un closure, que cacheFunction actúe como una memoria caché para el callback 
@@ -33,20 +36,29 @@ otra vez cálculos que ya se hicieron anteriormente.
   squareCache(5)    // invocará a square(5), almacenará el resultado y lo retornará
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) */
 
-function cacheFunction(cb) {}
+function cacheFunction(cb) {
+  const obj = {}
+  return function (n){
+    if(obj.hasOwnProperty(n)){
+        return obj[n];
+    }
+    obj[n] = cb(n);
+    return obj[n];
+  }
+}
 
 //----------------------------------------
 
 // Bind
 
 var instructor = {
-   nombre: 'Franco',
-   edad: 25,
+  nombre: 'Franco',
+  edad: 25,
 };
 
 var alumno = {
-   nombre: 'Juan',
-   curso: 'FullStack',
+  nombre: 'Juan',
+  curso: 'FullStack',
 };
 
 function getNombre() {
@@ -59,8 +71,8 @@ function getNombre() {
   Usando el método bind() guardar, en las dos variables declaradas a continuación, dos funciones que actúen como getNombre pero retornen el nombre del instructor y del alumno, respectivamente.
 */
 
-let getNombreInstructor = getNombre.bind();
-let getNombreAlumno = getNombre.bind();
+let getNombreInstructor = getNombre.bind(instructor);
+let getNombreAlumno = getNombre.bind(alumno);
 
 /*
   Ejercicio 4
@@ -68,7 +80,7 @@ let getNombreAlumno = getNombre.bind();
 */
 
 function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
-    return delimitadorIzquierda + cadena + delimitadorDerecha;
+  return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
 let textoAsteriscos = crearCadena.bind();
@@ -79,11 +91,11 @@ let textoUnderscore = crearCadena.bind();
 // --------------------------------
 
 module.exports = {
-   counter,
-   cacheFunction,
-   getNombreInstructor,
-   getNombreAlumno,
-   textoAsteriscos,
-   textoGuiones,
-   textoUnderscore,
+  counter,
+  cacheFunction,
+  getNombreInstructor,
+  getNombreAlumno,
+  textoAsteriscos,
+  textoGuiones,
+  textoUnderscore,
 };

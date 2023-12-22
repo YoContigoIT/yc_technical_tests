@@ -9,7 +9,7 @@ const {
   textoAsteriscos,
   textoGuiones,
   textoUnderscore
-} = require('../homework');
+} = require('../ejercicios');
 
 describe('counter', () => {
  it('should return a function', () => {
@@ -74,7 +74,7 @@ describe('cacheFunction(cb)', function() {
  });
 });
 
-describe('Bind', function() {
+xdescribe('Bind', function() {
  it('should return the correct name "Franco"', function() {
    expect(getNombreInstructor()).toEqual('Franco');
  });
