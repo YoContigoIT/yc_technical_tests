@@ -13,7 +13,21 @@ nuevoContador()     // 2
 const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
-function counter() {}
+
+const nuevoContador = counter();
+
+function counter() {
+  let contador = 0;
+  return function() {
+    contador++;
+    return contador;
+  };
+}
+
+nuevoContador() // 1
+nuevoContador() // 2
+nuevoContador() // 3
+
 
 /* Ejercicio 2
 Tu tarea aquí es lograr, mediante un closure, que cacheFunction actúe como una memoria caché para el callback 
@@ -33,11 +47,48 @@ otra vez cálculos que ya se hicieron anteriormente.
   squareCache(5)    // invocará a square(5), almacenará el resultado y lo retornará
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) */
 
-function cacheFunction(cb) {}
+  
+  function cacheFunction(cb) {
+    let cache = {};
+    return function(arg) {
+      if (cache.hasOwnProperty(arg)) return cache[arg];
+      cache[arg] = cb(arg);
+      return cache[arg];
+    };
+  }
+  
+  function cuadradoDeNumero(n) {
+    console.log('entré');
+    return n * n;
+  }
+  
+  const funcionCachada = cacheFunction(cuadradoDeNumero);
+  funcionCachada(5);
+  funcionCachada(5);
+  funcionCachada(6);
+
+
+// Output de la consola:
+// Al ejecutar la funciona con argumento 5 la primera vez si realiza la operación de multiplicación y pinta en la consola 'entré', al volver a ejecutar la funcion con el parametro 5 ya no vuele 
+// a ejecutar la operación y ya no pinta la palabra 'entré', pero al pasarle otro parametro nuevo '6' si realiza la operación
+
+// 'entré'
+// 25
+// 25
+
+// 36
+// 'entré'
+
 
 //----------------------------------------
 
 // Bind
+/*
+  Ejercicio 3
+  IMPORTANTE: no modificar el código de arriba (variables instructor y alumno, y función getNombre)
+  Usando el método bind() guardar, en las dos variables declaradas a continuación, dos funciones que actúen como getNombre pero retornen el nombre del instructor y del alumno, respectivamente.
+*/
+
 
 var instructor = {
    nombre: 'Franco',
@@ -53,14 +104,8 @@ function getNombre() {
   return this.nombre;
 }
 
-/*
-  Ejercicio 3
-  IMPORTANTE: no modificar el código de arriba (variables instructor y alumno, y función getNombre)
-  Usando el método bind() guardar, en las dos variables declaradas a continuación, dos funciones que actúen como getNombre pero retornen el nombre del instructor y del alumno, respectivamente.
-*/
-
-let getNombreInstructor = getNombre.bind();
-let getNombreAlumno = getNombre.bind();
+let getNombreInstructor = getNombre.bind(instructor);
+let getNombreAlumno = getNombre.bind(alumno);
 
 /*
   Ejercicio 4
@@ -71,9 +116,14 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
     return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos = crearCadena.bind();
-let textoGuiones = crearCadena.bind();
-let textoUnderscore = crearCadena.bind();
+let textoAsteriscos = crearCadena.bind(null, '*', '*');
+let textoGuiones = crearCadena.bind(null, '-', '-');
+let textoUnderscore = crearCadena.bind(null, '_', '_');
+
+
+// console.log(textoAsteriscos('hola')) // '*hola*'
+// console.log(textoGuiones('hola')) // '-hola-'
+// console.log(textoUnderscore('hola')) // '_hola_'
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
