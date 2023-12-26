@@ -30,7 +30,7 @@ function caracteresMasFrecuentes(cadena) {
   let char = ''
   for (let i = 0; i < cadena.length; i++) {
     cont = 0;
-    for (let j = 0; j < cadena.length-1; j++) {
+    for (let j = i + 1; j < cadena.length-1; j++) {
       if (cadena[i] === cadena[j]) {
         cont++;
         if (cont > aux) {
