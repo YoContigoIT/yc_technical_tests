@@ -14,14 +14,7 @@ const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
 function counter() {
-  let contador = 0;
   
-  function contadorInterno() {
-    contador++;
-    return contador;
-  }
-
-  return contadorInterno;
 }
 
 /* Ejercicio 2
@@ -43,16 +36,7 @@ otra vez cálculos que ya se hicieron anteriormente.
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) */
 
 function cacheFunction(cb) {
-  let data = {};
-
-  return (valor) => {
-    if (data.hasOwnProperty(valor)) {
-      return data[valor];
-    } else {
-      data[valor] = cb(valor);
-      return data[valor];
-    }
-  };
+  
 }
 
 //----------------------------------------
@@ -80,9 +64,7 @@ function getNombre() {
 */
 
 let getNombreInstructor = getNombre.bind(instructor);
-console.log(getNombreInstructor());
 let getNombreAlumno = getNombre.bind(alumno);
-console.log(getNombreAlumno());
 
 /*
   Ejercicio 4
@@ -93,9 +75,9 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
     return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos = crearCadena.bind(null,"*","*");
-let textoGuiones = crearCadena.bind(null,"-","-");
-let textoUnderscore = crearCadena.bind(null, "_", "_");
+let textoAsteriscos = crearCadena.bind();
+let textoGuiones = crearCadena.bind();
+let textoUnderscore = crearCadena.bind();
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
