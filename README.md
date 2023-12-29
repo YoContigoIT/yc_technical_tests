@@ -1,5 +1,3 @@
-¡Entendido! Vamos a proporcionar una explicación simple para que puedas agregarla a tu README. Asumiremos que tienes Jest instalado y configurado en tu proyecto. Aquí está la explicación paso a paso:
-
 ### Ejecutar Pruebas con Jest y npm
 
 1. **Instalar Dependencias:**
