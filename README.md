@@ -20,5 +20,5 @@ Si deseas ejecutar pruebas solo en un módulo específico, navega a la carpeta d
 
 ```bash
 cd <nombre-de-carpeta>
-npm test <nombre-del-archivo>
+npm test <nombre-del-archivo.test.js>
 ```
