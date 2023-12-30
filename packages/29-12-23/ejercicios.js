@@ -1,20 +1,25 @@
 // No cambies el nombre de las funciones
-
 function mayuscula(nombre) {
   //La función recibe un nombre y debe devolver el mismo que recibe pero con su primer letra en mayúscula
   //ej: Recibe "mario" ----> Devuelve "Mario"
   //Tu código:
+  let aux = nombre[0].toUpperCase() 
+  aux += nombre.substring(1);
+
+  return aux;
 }
 
 function invocarCallback(cb) {
   // Invoca al callback `cb`
   //Tu código:
+  cb();
 }
 
 function operacionMatematica(n1, n2, cb) {
   //Vamos a recibir una función que realiza una operación matemática como callback junto con dos números.
   //Devolver el callback pasándole como argumentos los números recibidos.
   //Tu código:
+  cb(n1, n2);
 }
 
 function sumarArray(numeros, cb) {
@@ -22,12 +27,20 @@ function sumarArray(numeros, cb) {
   // Pasa el resultado a `cb`
   // No es necesario devolver nada
   //Tu código:
+  let aux = 0;
+  numeros.forEach(element => {
+    aux += element;
+  });
+  cb(aux)
 }
 
 function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
   //Tu código:
+  array.forEach(element => {
+    cb(element)
+  });
 }
 
 function map(array, cb) {
@@ -35,6 +48,7 @@ function map(array, cb) {
   // Itera sobre cada valor en "array", pásalo a `cb` y luego ubicar el valor devuelto por `cb` en un nuevo array
   // El nuevo array debe tener la misma longitud que el array del argumento
   //Tu código:
+  return array.map((ele) => cb(ele));
 }
 
 function filter(array) {
@@ -42,6 +56,7 @@ function filter(array) {
   // ['abajo', 'pera', 'escalera', 'alerta', 'indice', 'azteca', 'arbol', 'buzo']
   //Devolver un nuevo array con los elementos que cumplen la condición
   //Tu código:
+  return array.filter((ele) => ele[0].includes("a"))
 }
 
 /*
@@ -57,6 +72,28 @@ function filter(array) {
     3.- Implementa pruebas unitarias utilizando el framework Jest para verificar el correcto funcionamiento de cada método de la lista de tareas. Asegúrate de cubrir casos donde se agregan tareas, se marcan como completadas y se obtiene la lista de tareas pendientes.
 
 */
+
+function listaDeTareas() {
+  const tareas = [];
+
+  return {
+    agregarTarea(tarea) {
+      const nuevaTarea = {
+        descripcion: tarea,
+        completada: false
+      };
+      tareas.push(nuevaTarea);
+    },
+    marcarComoCompletada(indice) {
+      if (indice >= 0 && indice < tareas.length) {
+        tareas[indice].completada = true;
+      }
+    },
+    obtenerTareasPendientes() {
+      return tareas.filter(tarea => !tarea.completada);
+    }
+  };
+}
 
 // No modificar nada debajo de esta línea
 // --------------------------------

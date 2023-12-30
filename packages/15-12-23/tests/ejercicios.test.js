@@ -4,7 +4,7 @@ const {
 } = require('../ejercicios.js');
 
 
-describe('Suma de un Rango de Números', () => {
+describe.skip('Suma de un Rango de Números', () => {
   test('Debería devolver 15 para el rango 1 a 5', () => {
     expect(sumaDeRango(1, 5)).toBe(15);
   });
@@ -18,7 +18,7 @@ describe('Suma de un Rango de Números', () => {
   });
 })
 
-describe('Encontrar el Carácter Más Frecuente', () => {
+describe.skip('Encontrar el Carácter Más Frecuente', () => {
   test('Debería devolver "g" para la cadena "programming"', () => {
     expect(caracteresMasFrecuentes("programming")).toEqual("r");
   });

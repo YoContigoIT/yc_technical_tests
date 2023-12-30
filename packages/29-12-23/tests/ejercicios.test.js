@@ -69,7 +69,7 @@ describe('filter(array)', function() {
 
 // Quita el skip para que corra esta última prueba
 
-describe.skip('listaDeTareas', () => {
+describe('listaDeTareas', () => {
   test('Agregar y obtener tareas pendientes', () => {
     const { agregarTarea, obtenerTareasPendientes } = listaDeTareas();
 

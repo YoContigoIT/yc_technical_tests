@@ -1,0 +1,5 @@
+Funciones Callback: Son funciones que se pasan como parametros a otras funciones para que puedan ser ejecutadas
+Métodos de array: Los metodos array son funciones que ya vienen por defecto en el lenguaje para ayudarnos a manejar los array
+Métodos de objetos: Los metodos del objeto son las funciones o lo que va hacer este objeto 
+Diferencias de los tipos de variables de javascript: son como guardamos los datos, hay uno para que cuando lo guardemoos por 
+primera vez no cambie su valor y otros que si puedan cambiar si valor pero en diferente situacion
