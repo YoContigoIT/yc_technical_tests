@@ -1,6 +1,8 @@
 {
   "name": "pruebas-de-codigo",
-  "workspaces": ["./*"],
+  "workspaces": [
+    "./*"
+  ],
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,5 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "supertest": "^6.3.3"
   }
 }
