@@ -14,12 +14,7 @@ const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
 function counter() {
-  let count = 0;
-
-  return function() {
-    count += 1;
-    return count;
-  }
+  
 }
 
 /* Ejercicio 2
@@ -44,19 +39,8 @@ de manera que, la próxima vez que reciba el mismo argumento, no sea necesario v
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) */
 
 function cacheFunction(cb) {
-  const cache = {};
-
-  return function(arg) {
-    if (cache.hasOwnProperty(arg)) {
-      return cache[arg];
-    } else {
-      const result = cb(arg);
-      cache[arg] = result;
-      return result;
-    }
-  };
+  
 }
-
 
 //----------------------------------------
 
