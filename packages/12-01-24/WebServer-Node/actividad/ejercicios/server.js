@@ -9,6 +9,9 @@ module.exports = http.createServer( function(req, res){
   //EJERCICIO 1
   if( req.url === '/'){
     console.log(`Server raised in port ${PORT}`);
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end(`Server raised in port ${PORT}`);
+    return;
   }
   //EJERCICIO 2
   else if( req.url === '/api'){
