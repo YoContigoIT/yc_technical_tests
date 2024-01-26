@@ -1,0 +1,5 @@
+* Funciones Callback
+Son las funciones que se reciben como parámetro en otra función para ser llamadas desde ella.
+* Métodos de array
+* Métodos de objetos
+* Diferencias de los tipos de variables de javascript
