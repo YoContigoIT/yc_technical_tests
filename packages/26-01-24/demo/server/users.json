@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "5be2ec9e-7f1f-4803-b76a-def69a1be64a",
+    "username": "bacalao",
+    "password": "$2b$10$ocuAKbYRI2u8vL9nbTZf8.l3/pTfA98RBwpIAXl0AAUG.P9MFBwhq"
+  },
+  {
+    "id": "07175af7-c3e6-4ba0-9083-674886edc520",
+    "username": "bacalao",
+    "password": "$2b$10$1fFd/qHDU/JQ/tzVT4EmCOj1tkErp.JyyjDgsfwfjTxyvI4gXBULO"
+  }
+]
