@@ -1,7 +1,7 @@
 const server = require("../server");
 const request = require("supertest");
 const fs = require("fs");
-console.log('server==>',server);
+console.log(request);
 describe("02 | Ejercicios", () => {
   it("GET /api, debe responder con un error o con un json", async () => {
     const response = await request(server).get("/api");
