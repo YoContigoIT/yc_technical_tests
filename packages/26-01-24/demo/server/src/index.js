@@ -1,6 +1,8 @@
 const crypto = require('crypto')
 const fs = require("fs");
 const express = require("express");
+// Importamos jwt
+const jwt = require('jsonwebtoken');
 
 const USERS_FILE = "./users.json";
 
@@ -13,7 +15,42 @@ if (!fs.existsSync(USERS_FILE)) {
     fs.writeFileSync(USERS_FILE, JSON.stringify([]));
 }
 
-app.post("/users", (req, res) => {
+// Nuestra key de JWT
+const secretKey = 'secreto123';
+
+// Nuestro middleware
+function verificarToken(req, res, next) {
+  const token = req.header('Authorization');
+
+  if (!token) {
+    // Si el token no existe 
+    return res.status(401).json({ mensaje: 'Acceso denegado. Token no proporcionado.' });
+  }
+
+  try {
+    // Verificar el token esta correcto
+    console.log(secretKey);
+    const decoded = jwt.verify(token, secretKey);
+    req.usuario = decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ mensaje: 'Token no válido.' });
+  }
+}
+
+// Endpoint donde se logea el user
+app.post('/login', (req, res) => {
+  const { user } = req.body;
+
+  // Crear un token JWT con la info
+  const token = jwt.sign({ user: user }, secretKey, { expiresIn: '1h' });
+
+  // Devolvemos el token
+  res.json({ token });
+});
+
+
+app.post("/users", verificarToken,(req, res) => {
   const newUser = req.body;
   fs.readFile(USERS_FILE, (err, data) => {
     if (err) {
