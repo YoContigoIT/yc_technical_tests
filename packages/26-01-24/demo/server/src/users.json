@@ -1,0 +1,14 @@
+[
+  {
+    "id": "e5ff962d-f1c7-43f4-b6c2-e4a9ad40ee30",
+    "username": "kim",
+    "role": "student",
+    "password": "$2b$10$rXDZe4vNXU2/Iihwta.RXeKj6vxru21wu.P3SZp47NoYADNX5kQve"
+  },
+  {
+    "id": "bb6af8c9-0303-4918-8687-64478b7a300a",
+    "username": "Pol",
+    "role": "student",
+    "password": "$2b$10$cZ3rL29JuEbCQad/B7YwJu58WztRv95UaEt63cFi.vvlKkJW064oG"
+  }
+]
