@@ -1,4 +1,4 @@
-const crypto = require('crypto')
+const crypto = require('crypto');
 const fs = require("fs");
 const express = require("express");
 // Importamos jwt
@@ -52,11 +52,14 @@ app.post('/login', (req, res) => {
 
 app.post("/users", verificarToken,(req, res) => {
   const newUser = req.body;
+
+
   fs.readFile(USERS_FILE, (err, data) => {
     if (err) {
       res.status(500).send("Error al leer el archivo");
       return;
     }
+    
     let users = JSON.parse(data);
 
     users.push({ id: crypto.randomUUID(), ...newUser });
@@ -67,6 +70,34 @@ app.post("/users", verificarToken,(req, res) => {
       } else {
         res.status(200).send("Usuario creado exitosamente");
       }
+    });
+  });
+});
+
+app.post("/login", async (req, res) => {
+  const loginPayload = req.body;
+
+  fs.readFile(USERS_FILE, async (err, data) => {
+    if (err) {
+      res.status(500).send("Error al leer el archivo");
+      return;
+    }
+    let users = JSON.parse(data);
+
+    const user = users.find((user) => {
+      return user.email === loginPayload.email
+    });
+
+    if (!user) {
+      return res.status(404).send("Usuario no encontrado");
+    }
+
+    const isValid = await bcrypt.compare(loginPayload.password, user.password)
+
+    if (!isValid) return res.status(401).send('Credenciales inválidas');
+
+    res.status(200).send({
+      token: jwt.sign({ user: user.id }, 'super_secreto_123', { expiresIn: '10m' })
     });
   });
 });
