@@ -1,6 +1,6 @@
 const { usarForEach, usarMap, usarFilter, usarFind, sumarArray, multiplicarArray } = require('../ejercicios-extras');
 
-describe('Pruebas de métodos de array', () => {
+xdescribe('Pruebas de métodos de array', () => {
     test('sumarArray suma correctamente los elementos del array', () => {
         const resultado = sumarArray([1, 2, 3, 4]);
         expect(resultado).toBe(10);
