@@ -7,6 +7,9 @@
 // toHaveCalled - Verifica si una función fue llamada
 // toHaveBeenCalledWith - Verifica si una función fue llamada con ciertos argumentos
 
+// Para poder usar el mock, actualmente JEST solo permite que los métodos de los modelos se definan en el jest.mock como en el ejemplo de abajo.
+// A la vez de que se necesita utilizar el modelo que vayamos a consumir dependediendo de la acción que vayamos a realizar.
+
 const User = require('../../src/database/models/user.model');
 const { findAll, findOneById, create } = require("../../src/services/users.service");
 const { user } = require('../fixtures/user.mock');
