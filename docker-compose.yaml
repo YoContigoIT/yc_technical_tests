@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  testing:
+    image: postgres:14.1
+    ports:
+      - "5432:5432"
+    volumes:
+      - testing:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+volumes:
+  testing:
